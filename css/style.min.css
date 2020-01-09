@@ -163,7 +163,7 @@
 
 .promo {
   min-height: 800px;
-  background: url("./image/promo/promo_bg.png") center center/cover no-repeat;
+  background: url("../image/promo/promo_bg.png") center center/cover no-repeat;
   padding: 200px 0 135px 0;
 }
 

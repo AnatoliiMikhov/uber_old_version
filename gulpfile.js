@@ -9,25 +9,25 @@ gulp.task('server', function () {
 
 	browserSync({
 		server: {
-			baseDir: "src"
+			baseDir: "ups7write.github.io"
 		}
 	});
 
-	gulp.watch("src/*.html").on('change', browserSync.reload);
+	gulp.watch("ups7write.github.io/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('styles', function () {
-	return gulp.src("src/sass/**/*.+(scss|sass)")
+	return gulp.src("ups7write.github.io/sass/**/*.+(scss|sass)")
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(rename({ suffix: '.min', prefix: '' }))
 		.pipe(autoprefixer())
 		.pipe(cleanCSS({ compatibility: 'ie8' }))
-		.pipe(gulp.dest("src/css"))
+		.pipe(gulp.dest("ups7write.github.io/css"))
 		.pipe(browserSync.stream());
 });
 
 gulp.task('watch', function () {
-	gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel('styles'));
+	gulp.watch("ups7write.github.io/sass/**/*.+(scss|sass)", gulp.parallel('styles'));
 });
 
 gulp.task('default', gulp.parallel('watch', 'styles', 'server'));
